@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework011</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #tt2 {
+            width: 300px;
+            background-color: antiquewhite;
+            margin: auto;
+            padding: 20px 5px 5px 20px;
+            font-family: sans-serif;
+            border-radius: 15px;
+        }
+
+        .inp {
+            width: 90%;
+            height: 25px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            margin: 0px 0px 10px 0px;
+        }
+
+        button {
+            width: 92%;
+            height: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: azure;
+            cursor: pointer;
+        }
+
+        #chackboks {
+            color: blue;
+            text-align: right;
+            text-decoration: underline;
+            padding: 0px 25px 0px 0px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="tt2">
+        <form>
+            Your login:
+            <input class="inp" id="login">
+            Your password:
+            <input type="password" class="inp" id="pass"><br>
+            <label>Remember me!</label>
+            <input type="checkbox" id="checkbox" checked><br><br>
+            <button id="sign" value="1">Sign in</button>
+            <p id="chackboks"><a href="https://i.gifer.com/1Q24.gif">Forgot password?</a></p>zz
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#sign").click(function(event) {
+                event.preventDefault();
+
+                let loginValue = $("#login").val().trim();
+                let passwordValue = $("#pass").val().trim();
+                let checkboxChecked = $("#checkbox").prop("checked");
+
+                if (loginValue === "" || passwordValue === "") {
+                    alert("Пожалуйста, введите логин и пароль.");
+                } else {
+                    if (checkboxChecked) {
+                        alert("Привет, " + loginValue + ", я запомнил тебя");
+                    } else {
+                        alert("Я не запомнил тебя");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

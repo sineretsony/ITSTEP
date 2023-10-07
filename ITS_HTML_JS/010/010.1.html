@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Changer</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        img {
+            max-width: 500px;
+            max-height: 80vh;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="image" src="image4.jpg" alt="Image">
+    <div>
+        <button id="btnStart">Start</button>
+        <button id="btnStop">Stop</button>
+    </div>
+
+    <script>
+        let imgElement = document.getElementById("image");
+        let startButton = document.getElementById("btnStart");
+        let stopButton = document.getElementById("btnStop");
+        let imageUrls = ["image1.jpg", "image2.jpg", "image3.jpg"];
+        
+        let imageIndex = 0;
+        let intervalId = null;
+
+        function changeImage() {
+            imgElement.src = imageUrls[imageIndex];
+            imageIndex++;
+            if(imageIndex == imageUrls.length){
+                imageIndex = 0;
+            }
+        }
+
+        startButton.addEventListener('click', function () {
+            intervalId = setInterval(changeImage, 1000); 
+            changeImage();
+        });
+
+        stopButton.addEventListener('click', function () {
+            clearInterval(intervalId);
+        });
+    </script>
+</body>
+
+</html>

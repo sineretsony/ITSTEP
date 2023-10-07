@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework011</title>
+    <style>
+        #tt2 {
+            width: 500px;
+            background-color: antiquewhite;
+            margin: auto;
+            padding: 20px 20px 20px 20px;
+            font-family: sans-serif;
+            border-radius: 12px;
+            display: grid;
+            gap: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .inp-container {
+            width: 50%;
+            flex-basis: 49%;
+            box-sizing: border-box;
+        }
+
+        .inp-label {
+            font-size: 14px;
+        }
+
+        .inp-field {
+            width: 95%;
+            height: 25px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+
+        button {
+            grid-column: span 2;
+            width: 100%;
+            height: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: azure;
+            cursor: pointer;
+        }
+
+        .radio-input {
+            margin-right: -5px;
+            margin: 30px 0px 0px 0px;
+        }
+
+        table {
+            width: 540px;
+            margin: auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 20px solid antiquewhite;
+            background-color: antiquewhite;
+            margin: auto;
+            border-radius: 12px;
+        }
+
+
+
+        #results {
+            text-align: left;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        #results h6 {
+            border: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tt2">
+        <div class="inp-container">
+            <div>
+                <label class="inp-label" for="name">Firstname:</label>
+            </div>
+            <input class="inp-field" id="name">
+        </div>
+        <div class="inp-container">
+            <div>
+                <label class="inp-label" for="lname">Lastname:</label>
+            </div>
+            <input class="inp-field" id="lname">
+        </div>
+        <div class="inp-container">
+            <div>
+                <label class="inp-label" for="birthday">Birthday:</label>
+            </div>
+
+            <input type="date" class="inp-field" id="birthday">
+        </div>
+        <div class="inp-container">
+            <div class="radio-container">
+                <span>Gender:</span>
+                <label class="radio-input" for="gender1">Male</label>
+                <input class="radio-input" type="radio" value="male" id="gender1" name="gender">
+                <label class="radio-input" for="gender2">Female</label>
+                <input class="radio-input" type="radio" value="female" id="gender2" name="gender">
+            </div>
+        </div>
+        <div class="inp-container">
+            <div>
+                <label class="inp-label" for="count">Country:</label>
+            </div>
+            <select class="inp-field" name="count" id="country">
+                <option></option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Japan</option>
+                <option>China</option>
+                <option>India</option>
+            </select>
+        </div>
+        <div class="inp-container">
+            <div>
+                <label class="inp-label" for="city">City:</label>
+            </div>
+            <select class="inp-field" name="city" id="city">
+                <option></option>
+                <option>Washington, D.C.</option>
+                <option>Ottawa</option>
+                <option>London</option>
+                <option>Canberra</option>
+                <option>Berlin</option>
+                <option>Paris</option>
+                <option>Tokyo</option>
+                <option>Beijing</option>
+                <option>New Delhi</option>
+            </select>
+        </div>
+        <div>
+            <label>Skills:</label>
+            <input type="checkbox" id="checkbox1">
+            <label class="inp-label" for="checkbox1">HTML:</label>
+            <input type="checkbox" id="checkbox2">
+            <label class="inp-label" for="checkbox2">CSS:</label>
+            <input type="checkbox" id="checkbox3">
+            <label class="inp-label" for="checkbox3">JS:</label>
+            <input type="checkbox" id="checkbox4">
+            <label class="inp-label" for="checkbox4">PHP:</label>
+            <input type="checkbox" id="checkbox5">
+            <label class="inp-label" for="checkbox5">C++:</label>
+            <input type="checkbox" id="checkbox6">
+            <label class="inp-label" for="checkbox6">JAVA:</label>
+            <input type="checkbox" id="checkbox7">
+            <label class="inp-label" for="checkbox7">C#:</label>
+        </div>
+        <button id="sign" value="1">Save</button>
+
+    </div>
+    <div id="results"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let saveButton = document.getElementById("sign");
+            let resultsContainer = document.getElementById("results");
+
+            saveButton.addEventListener("click", function() {
+                let firstname = document.getElementById("name").value;
+                let lastname = document.getElementById("lname").value;
+                let birthday = document.getElementById("birthday").value;
+                let gender = document.querySelector('input[name="gender"]:checked').value;
+                let country = document.getElementById("country").value;
+                let city = document.getElementById("city").value;
+                let skills = [];
+
+                let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                checkboxes.forEach(function(checkbox) {
+                    skills.push(checkbox.nextElementSibling.textContent);
+                });
+
+                let table = document.createElement("table");
+
+                const cellStyle = `
+                    border: 1px solid black;
+                    padding: 8px;
+                `;
+
+                table.innerHTML = `
+                    <tr>
+                        <td colspan="2" style="${cellStyle}"><h6>Results</h5></td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">Firstname:</td><td style="${cellStyle}">${firstname}</td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">Lastname:</td><td style="${cellStyle}">${lastname}</td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">Birthday:</td><td style="${cellStyle}">${birthday}</td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">Gender:</td><td style="${cellStyle}">${gender}</td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">Country:</td><td style="${cellStyle}">${country}</td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">City:</td><td style="${cellStyle}">${city}</td>
+                    </tr>
+                    <tr>
+                        <td style="${cellStyle}">Skills:</td><td style="${cellStyle}">${skills.join(", ")}</td>
+                    </tr>
+                `;
+
+                resultsContainer.innerHTML = "";
+                resultsContainer.appendChild(table);
+            });
+        });
+    </script>
+
+
+</body></html>

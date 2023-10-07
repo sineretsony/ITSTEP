@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homewokr07</title>
+</head>
+
+<body>
+    <script>
+        // Задача 1
+        let oneNum = +prompt("Введите число диапазона 'От'");
+        let twoNum = +prompt("Введите число диапазона 'До'");
+        let sum = 0;
+
+        if (oneNum > twoNum) {
+            sum = oneNum;
+            oneNum = twoNum;
+            twoNum = sum;
+        }
+
+        if (sum > 0) {
+            sum = 0;
+        };
+
+        for (let i = oneNum; i <= twoNum; i++) {
+            sum += i;
+        }
+        alert("Сумма всех введёных числел: " + sum);
+
+        // Задача 2
+        let numbers = +prompt(" Введите число");
+        let tempNum = 10;
+        if (numbers < 0) {
+            tst = -10;
+        }
+        for (i = 1; Math.floor(numbers / tempNum) > 0; i++) {
+            tempNum *= 10;
+        }
+
+        if (Math.floor(numbers / tempNum) === 0) {
+            alert("В вашем числе цифр: " + i);
+        }
+
+        // Задача 3
+        let numPositive = 0;
+        let numNegative = 0;
+        let numZeros = 0;
+        let numPaired = 0;
+        let numUnpaired = 0;
+
+        for (let i = 0; i <= 10; i++) {
+            let userAns1 = +prompt("Введите число " + i);
+
+            if (isNaN(userAns1)) {
+                alert("Нужно ввести именно число");
+                i--;
+                continue;
+            }
+
+            if (userAns1 > 0) {
+                numPositive++;
+            } else if (userAns1 < 0) {
+                numNegative++;
+            } else {
+                numZeros++;
+            }
+
+            if (userAns1 % 2 === 0) {
+                numPaired++;
+            } else {
+                numUnpaired++;
+            }
+        }
+
+        alert("Статистика:\n" +
+            "Положительных чисел: " + numPositive + "\n" +
+            "Отрицательных чисел: " + numNegative + "\n" +
+            "Нулей: " + numZeros + "\n" +
+            "Четных чисел: " + numPaired + "\n" +
+            "Нечетных чисел: " + numUnpaired);
+
+        // Задача 4
+        let repeat = true;
+
+        while (repeat) {
+            let num1 = +prompt("Введите первое число:");
+            let num2 = +prompt("Введите второе число:");
+            let operator = prompt("Введите знак операции (+, -, *, /):");
+
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Некорректный знак операции.");
+                    continue;
+            }
+
+            alert("Результат: " + result);
+
+            let again = prompt("Хотите решить еще один пример? (да/нет)");
+            if (again == "нет" && "Нет") {
+                repeat = false;
+            }
+        }
+
+        // Задача 5
+
+        let piFagor = '';
+
+        for (let i = 2; i <= 9; i++) {
+            for (let j = 1; j <= 10; j++) {
+                let tabl = i * j;
+                piFagor += i + " * " + j + " = " + tabl + "\n";
+            }
+            alert(piFagor);
+            piFagor = '';
+        }
+
+    </script>
+
+</body>
+
+</html>

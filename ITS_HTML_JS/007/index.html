@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for - цикл с параметрами
+        // for(1 начало; 2 условие; 3  шаг)
+        //  {
+        //     тело цикла       
+        //  }
+        // ++ оператор инкремент (+1 к значению которое было)
+        //        for (let i = 0; i < 10; i++) {
+        //            console.log("1 = ", i)
+        //        }
+        //
+        //        for (let i = 10; i > 0; i--) {
+        //            console.log("1 = ", i)
+        //        }
+
+        //        let start = +prompt("Start");
+        //        let end = +prompt("End");
+        //
+        //        for (let i = start; i <= end; i++) {
+        //            if (i % 4 === 0) {
+        //                console.log(i);
+        //            }
+        //        }
+        //        for (let i = 1; i <= 5; i++) { // console.log("floor ", i);
+        //            for (let j = 1; j <= 10; j++) {
+        //                console.log(" step ", j);
+        //            }
+        //        }
+        // while - цикл с условием
+        //while(условие){
+        //         действие
+        //        }
+
+        //        let number = 0;
+        //        while (number < 6) {
+        //            console.log("num = ", number)
+        //            number++
+        //        }
+        //        
+        //        let num = 0;
+        //        while(true){
+        //            num = +prompt("Enter ");
+        //            if (num == 0){
+        //                break;
+        //            }
+        //        }
+        //        for (let i = 0; i < 10; i++) {
+        //            if(i % 2 == 0){
+        //                continue;
+        //            }
+        //            console.log("1 = ", i)
+        //        }
+
+        //        let userNum = 0;
+        //        let rendNum = 3;
+        //        let score = 0;
+        //
+        //        while (true) {
+        //            rendNum = 2;
+        //            for (let i = 0; i < 3; i++) {
+        //                alert("Ваша попытка номер № " + (i + 1) + " Очки: " + score);
+        //                userNum = +prompt("Введите число:");
+        //                if (userNum === rendNum) {
+        //                    score += 50;
+        //                    alert("Вы победили! Очки: " + score);
+        //                    break;
+        //                } else if (userNum < rendNum) {
+        //                    if (score >= 30) {
+        //                        score -= 30;
+        //                    } else {
+        //                        score = 0;
+        //                    }
+        //                    alert("Попробуйте больше. Очки: " + score);
+        //                } else {
+        //                    if (score >= 30) {
+        //                        score -= 30;
+        //                    } else {
+        //                        score = 0;
+        //                    }
+        //                    alert("Попробуйте меньше. Очки: " + score);
+        //                }
+        //            }
+        //
+        //            let check = confirm("Игра окончена! Хотите продолжить? Очки: " + score);
+        //            if (check) {
+        //                continue;
+        //            } else {
+        //                break;
+        //            }
+        //        }
+
+        // Задача 1
+        let num1 = +prompt("Введите число:");
+        let inner = "";
+
+        for (let i = 0; i < num1; i++) {
+            inner += "# ";
+        }
+
+        alert(inner);
+        
+        // Задача 1.1
+        let nu = +prompt("Введите число:");
+        let inn = "";
+
+        for (let i = 0; i < nu; i++) {
+            inn += "🤨 ";
+        }
+
+        alert(inn);
+
+
+        // Задача 2
+        let num2 = +prompt("Введите число:");
+        let numbers = "";
+
+        for (let i = num2; i >= 0; i--) {
+            numbers += i + " ";
+        }
+
+        alert(numbers);
+
+        //Задача 3
+        let base = +prompt("Введите число:");
+        let exp = +prompt("Введите степень:");
+        let result = 1;
+
+        for (let i = 0; i < exp; i++) {
+            result *= base;
+        }
+
+        alert("Результат: " + result);
+
+
+        // Задача 4
+        let userAnswer;
+        let correctAnswer = 2 + 2 * 2;
+
+        while (true) {
+            userAnswer = +prompt("Решите пример: 2 + 2 * 2");
+
+            if (userAnswer === correctAnswer) {
+                alert("Правильно!");
+                break;
+            } else {
+                alert("Неправильно. Попробуйте ещё раз.");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

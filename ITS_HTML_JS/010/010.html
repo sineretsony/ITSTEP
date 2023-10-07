@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document010</title>
+    <style>
+        div {
+            background-color: red;
+            height: 50px;
+            width: 100px;
+
+        }
+
+        #stranger {
+            position: absolute;
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+            height: 1500px;
+        }
+
+    </style>
+</head>
+
+<!--<body onclick="out.innerText = 'Click detected:' + event.target.nodeName; console.log(event)">-->
+
+<body onclick="moveDiv(event)">
+
+    <div onclick="alert('clicked DIV')"></div>
+
+
+    <div id="clicableDiv"></div>
+
+
+    <div id="clicableDiv2"></div>
+
+
+    <!--
+    <div id="stranger">
+        <p id="x">0</p>
+        <p id="y">0</p>
+    </div>
+    <p id="out"></p>
+-->
+    <img id="img" src="">
+    <button id="btnC">Change color</button>
+    <button id="btnStart">Start</button>
+    <button id="btnStop">Stop</button>
+    <script src=script.js></script>
+
+</body>
+
+</html>

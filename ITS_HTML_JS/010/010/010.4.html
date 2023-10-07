@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework010</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #addButton {
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button id="addButton">Add Square</button>
+    <div id="container"></div>
+    <script>
+        let addButton = document.getElementById('addButton');
+        let container = document.getElementById('container');
+        let squares = [];
+
+        addButton.addEventListener('click', () => {
+            let newSquare = document.createElement('div');
+            newSquare.className = 'square';
+            newSquare.style.backgroundColor = randomColor();
+            container.appendChild(newSquare);
+            squares.push(newSquare);
+
+            newSquare.addEventListener('click', () => {
+                container.removeChild(newSquare);
+                squares.splice(squares.indexOf(newSquare), 1);
+            });
+        });
+
+        function randomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                console.log(squares);
+            }
+            return color;
+        }
+
+    </script>
+</body>
+
+</html>

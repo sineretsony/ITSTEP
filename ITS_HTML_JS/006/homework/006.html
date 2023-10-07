@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework_006</title>
+    <script>
+        // Задача 1
+        let age = +prompt("Введите ваш возраст");
+
+        if (age > 0 && age <= 11) {
+            alert("ребёнок");
+        } else if (age >= 12 && age <= 18) {
+            alert("Подросток");
+        } else if (age >= 19 && age <= 60) {
+            alert("Взрослый");
+        } else if (age >= 61 && age < 115) {
+            alert("Пенсионер");
+        } else {
+            alert("Некорректный возраст");
+        }
+
+        // Задача 2
+        let s = +prompt("Введите число 0-9")
+        switch (s) {
+            case 1:
+                alert("!");
+                break;
+            case 2:
+                alert("@");
+                break;
+            case 3:
+                alert("#");
+                break;
+            case 4:
+                alert("$");
+                break;
+            case 5:
+                alert("$");
+                break;
+            case 6:
+                alert("^");
+                break;
+            case 7:
+                alert("&");
+                break;
+            case 8:
+                alert("*");
+                break;
+            case 9:
+                alert("(");
+                break;
+            case 0:
+                alert(")");
+                break;
+        }
+
+
+        // Задача 3
+        let numbers = +prompt("Введите трёхзначное число");
+        let num1 = Math.floor(numbers / 100);
+        let num3 = numbers % 10;
+        let num2 = Math.floor((numbers - num1 * 100 - num3) / 10);
+
+        if (num1 === num2 || num2 === num3 || num1 === num3) {
+            alert("В числе есть одинаковые цифры");
+        } else {
+            alert("В числе нет одинаковых цифр");
+        }
+
+        // Задача 4
+        let yearVs = +prompt("Введите год");
+
+        if ((yearVs % 4 === 0 && yearVs % 100 !== 0) || yearVs % 400 === 0) {
+            alert(yearVs + " - високосный год");
+        } else {
+            alert(yearVs + " - не високосный год");
+        }
+
+        // Задача 5
+        let numbersFive = +prompt("Введите пятизначное число");
+        let nNum1 = numbersFive % 10;
+        let nNum2 = Math.floor((numbersFive % 100) / 10);
+        let nNum3 = Math.floor((numbersFive % 1000) / 100);
+        let nNum4 = Math.floor((numbersFive % 10000) / 1000);
+        let nNum5 = Math.floor(numbersFive / 10000);
+        let nNumSumm = "" + nNum1 + nNum2 + nNum3 + nNum4 + nNum5;
+
+        nNumSumm === numbersFive.toString() ? alert("Палиндром") : alert("Не палиндром");
+
+        // Задача 6
+        let amountUSD = +prompt("Введите количество USD");
+        let currency = prompt("Выберите валюту для перевода: EUR(1), UAN(2) или AZN(3)");
+        let convertedAmount;
+
+        switch (currency.toLowerCase()) {
+            case "eur":
+            case "1":
+                convertedAmount = amountUSD * 0.85;
+                break;
+            case "uan":
+            case "2":
+                convertedAmount = amountUSD * 37.5;
+                break;
+            case "azn":
+            case "3":
+                convertedAmount = amountUSD * 1.7;
+                break;
+            default:
+                alert("Выбрана некорректная валюта");
+                break;
+        }
+
+        alert(amountUSD + "USD = " + Math.floor(convertedAmount));
+
+        // Задача 7
+        let byeItem = +prompt("Сумма покупки: ");
+        let tempCost;
+
+        if (byeItem >= 200 && byeItem < 300) {
+            tempCost = byeItem * 0.97;
+            alert("Сумма к оплате со скидкой: " + tempCost);
+        } else if (byeItem >= 300 && byeItem < 500) {
+            tempCost = byeItem * 0.95;
+            alert("Сумма к оплате со скидкой: " + tempCost);
+        } else if (byeItem >= 500) {
+            tempCost = byeItem * 0.93;
+            alert("Сумма к оплате со скидкой: " + tempCost);
+        } else {
+            alert(byeItem);
+        }
+
+        // Задача 8
+        let circleP = +prompt("Введите длину окружности:");
+        let squareP = +prompt("Введите периметр квадрата:");
+        let convCircle = circleP / 3.14159;
+        let convSquare = squareP / 2;
+        if (convCircle <= squareP) {
+            alert("Окружность может поместится в вашем квадрате");
+        } else {
+            alert("Окружность больше квадрата и не поместится");
+        }
+
+        // Задача 9
+        let count = 0;
+
+        let question1 = +prompt("Скорость звука в воздухе равна:\nа) 343 м/с\nб) 875 м/с\nв) 377 м/с");
+        if (question1 === 1) {
+            count += 2;
+        }
+
+        let question2 = +prompt("Скорость света в вакууме приближенно равна:\nа) 300 000 км/с\nб) 186 282 миль/с\nв) 299 792 458 м/с");
+        if (question2 === 3) {
+            count += 2;
+        }
+
+        let question3 = +prompt("Какой газ служит для поглощения вредных ультрафиолетовых лучей в стратосфере?\nа) Кислород\nб) Азот\nв) Озон");
+        if (question3 === 3) {
+            count += 2;
+        }
+
+        alert("Ваш результат: " + count + " балл(ов)");
+
+        // Задача 10
+        let day = +prompt("Введите день:");
+        let month = +prompt("Введите месяц:");
+        let year = +prompt("Введите год:");
+
+        let vsYear = false;
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            vsYear = true;
+        }
+
+        let maxiDay;
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                maxiDay = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                maxiDay = 30;
+                break;
+            case 2:
+                maxiDay = vsYear ? 29 : 28;
+                break;
+            default:
+                alert("Введен некорректный месяц");
+                break;
+        }
+        if (day < maxiDay && month <= 12) {
+            day += 1;
+            alert(day + ". " + month + ". " + year);
+        } else if (day === maxiDay && month < 12) {
+            day = 1;
+            month += 1;
+            alert(day + ". " + month + ". " + year);
+        } else if (day === maxiDay && month === 12) {
+            day = 1;
+            month = 1;
+            year += 1;
+            alert(day + ". " + month + ". " + year);
+        } else {
+            alert("Введена некорректная дата");
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

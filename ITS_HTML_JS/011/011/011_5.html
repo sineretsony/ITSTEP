@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework011</title>
+    <style>
+        #osnova {
+            width: 500px;
+            background-color: antiquewhite;
+            margin: auto;
+            padding: 5px 18px 12px 12px;
+            border-radius: 10px;
+            font-family: sans-serif;
+            font-size: 12px;
+        }
+
+        button {
+            width: 500px;
+            margin:  1px 0px 2px 0px;
+            cursor: pointer;
+        }
+
+        #question {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .input-group label {
+            width: 110px;
+            margin: 0px;
+        }
+
+        .input-group input {
+            flex: 1;
+        }
+        .one {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="osnova">
+        <div>
+            <b><p>All questions:</p></b>
+            <div id="allQuestions">
+            </div>
+        </div>
+        <div>
+            <hr>
+            <b><p>Add new question:</p></b>
+            <div id="question">
+                <div class="input-group">
+                    <label>Question:</label>
+                    <input id="newQuestion">
+                </div>
+                <div class="input-group">
+                    <label>Correct answer:</label>
+                    <input id="newCorrect">
+                </div>
+                <div class="input-group">
+                    <label>Wrong answer:</label>
+                    <input id="newWrong">
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="addQuestion">Add</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addQuestion").addEventListener("click", function() {
+            let newQuestionText = document.getElementById("newQuestion").value;
+            let newCorrectText = document.getElementById("newCorrect").value;
+            let newWrongText = document.getElementById("newWrong").value;
+
+            let allQuestionsDiv = document.getElementById("allQuestions");
+
+            let newQuestionDiv = document.createElement("div");
+            newQuestionDiv.className = "question-container";
+
+            let questionP = document.createElement("p");
+            questionP.textContent = newQuestionText;
+            questionP.className = "one";
+            newQuestionDiv.appendChild(questionP);
+
+            let newCorrectP = document.createElement("p");
+            newCorrectP.textContent = "Correct answer: " + newCorrectText;
+            newQuestionDiv.appendChild(newCorrectP);
+
+            let newWrongP = document.createElement("p");
+            newWrongP.textContent = "Wrong answer: " + newWrongText;
+            newQuestionDiv.appendChild(newWrongP);
+
+            allQuestionsDiv.appendChild(newQuestionDiv);
+
+            document.getElementById("newQuestion").value = "";
+            document.getElementById("newCorrect").value = "";
+            document.getElementById("newWrong").value = "";
+        });
+    </script>
+</body>
+</html>

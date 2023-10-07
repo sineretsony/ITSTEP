@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homewok_005</title>
+</head>
+
+<body>
+    <script>
+        // Задача 1
+        let name = prompt("Введите имя: ");
+        alert("Привет, " + name + "!");
+
+        // Задача 2
+        const currentYear = 2023;
+        let yearBirth = +prompt("Введите Ваш год рождения: ГГГГ");
+        let age = currentYear - yearBirth;
+        alert("Ваш возраст: " + age + " лет");
+
+        // Задача 3
+        let sideLength = +prompt("Введите длину стороны квадрата:");
+        let squareArea = sideLength * sideLength;
+        alert("Площадь квадрата со стороной " + sideLength + " равно: " + squareArea);
+
+        // Задача 4
+        let radius = +prompt("Введите радиус окружности: ");
+        let pi = 3.14159;
+        let area = pi * radius * radius;
+        alert("Площадь окружности с радиусом " + radius + " равна: " + area);
+
+        // Задача 5
+        let distCity = +prompt("Введите расстояние в км между двумя городами:");
+        let distTime = +prompt("Введите кол-во часов за которое нужно вам доехать:");
+        let speedCar = distCity / distTime;
+        let roundedSpeed = Math.ceil(speedCar);
+        alert("Нужно ехать со скоростью: " + roundedSpeed + " км/ч");
+
+        // Задача 6
+        const evro = 0.91
+        let dollar = +prompt("Введите кол-во долларов для конвертации в евро: ");
+        let convDollar = dollar * evro;
+        alert("€ " + convDollar);
+
+        // Задача 7
+        let flashMem = +prompt("Введите объём памяти флешки в ГБ");
+        let fileSize = 820;
+        let filesC = Math.floor((flashMem * 1000) / fileSize);
+        alert("На флешке объемом " + flashMem + " ГБ поместится " + filesC + " файл(ов) размером 820 МБ");
+        
+        // Задача 8
+        let moneyWallet = +prompt("Сколько у вас денег в кошельке?");
+        let costChoco = +prompt("Цена одной шоколадки?");
+        let ChocoBye = Math.floor(moneyWallet / costChoco);
+        let backWallet = moneyWallet - (ChocoBye * costChoco);
+        alert("На сумму " + moneyWallet + " можно купить " + ChocoBye + " и останется в кошельке " + backWallet);
+        
+        // Задача 9
+        let numRevers = +prompt("Введите трёхзначное число: ");
+        let num1 = Math.floor(numRevers / 100);
+        let num3 = numRevers % 10;
+        let num2 = ((numRevers - num3) - (num1*100)) / 10;
+        alert(num3 + "" + num2 + "" + num1);
+     
+        // Задача 10
+        let num4 = +prompt("Ведите челое число для проверки парности:");
+        num4 % 2 ? alert("Число не парное") : alert("Число парное");
+
+    </script>
+
+
+</body>
+
+</html>

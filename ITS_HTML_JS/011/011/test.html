@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex-basis: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .inp-label {
+            margin-right: 5px;
+        }
+
+        #bod {
+            width: 500px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bod">
+        <div class="container">
+            <div class="column">
+                <div>
+                    <label for="001">001:</label>
+                </div>
+                <div>
+                    <input id="001">
+                </div>
+                <div>
+                    <label class="inp-label" for="002">002:</label>
+                    <input class="inp-field" id="002">
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <label class="inp-label" for="003">003:</label>
+                    <input class="inp-field" id="003">
+                </div>
+                <div>
+                    <label class="inp-label" for="004">004:</label>
+                    <input class="inp-field" id="004">
+                </div>
+            </div>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="checkbox1">
+            <label class="inp-label" for="checkbox1">HTML:</label>
+            <input type="checkbox" id="checkbox2">
+            <label class="inp-label" for="checkbox2">CSS:</label>
+            <input type="checkbox" id="checkbox3">
+            <label class="inp-label" for="checkbox3">JS:</label>
+            <input type="checkbox" id="checkbox1">
+            <label class="inp-label" for="checkbox1">HTML:</label>
+            <input type="checkbox" id="checkbox2">
+            <label class="inp-label" for="checkbox2">CSS:</label>
+            <input type="checkbox" id="checkbox3">
+            <label class="inp-label" for="checkbox3">JS:</label>
+        </div>
+    </div>
+</body>
+
+</html>

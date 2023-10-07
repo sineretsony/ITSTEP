@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>homework011</title>
+    <style>
+        .color-container {
+            width: 210px;
+            display: flex;
+            font-family: sans-serif;
+            font-size: 16px;
+            border: 1px solid black;
+            margin: auto;
+            padding: 0px 16px 0px 3px;
+            background-color: antiquewhite;
+        }
+
+        .color {
+            width: 50px;
+            border-radius: 0;
+            height: 22px;
+            border: 0px solid black;
+        }
+
+        label {
+            padding: 3px 3px 1px 7px;
+        }
+
+        button {
+            width: 232px;
+            margin: 2px;
+            text-align: center;
+        }
+
+        #osnova {
+            width: 500px;
+            height: 160px;
+            margin: auto;
+            background-color: antiquewhite;
+            padding: 20px;
+            border-radius: 5px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .color-entry {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 5px;
+            border: 1px solid grey;
+            font-family: sans-serif;
+            font-size: 12px;
+            width: 154px;
+/*            text-align:*/
+
+        }
+
+        .color-box {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+
+        }
+
+        .color-label {
+            display: inline-block;
+            padding: 3px;
+
+        }
+
+        .color-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="osnova">
+        <div class="color-container">
+            <label for="redInput">R</label>
+            <input class="color" id="redInput">
+            <label for="greenInput">G</label>
+            <input class="color" id="greenInput">
+            <label for="blueInput">B</label>
+            <input class="color" id="blueInput">
+        </div>
+        <div>
+            <button>Add color</button>
+        </div>
+    </div>
+
+    <script>
+        const addButton = document.querySelector('button');
+        const osnova = document.querySelector('#osnova');
+
+        addButton.addEventListener('click', () => {
+            const redValue = document.getElementById('redInput').value;
+            const greenValue = document.getElementById('greenInput').value;
+            const blueValue = document.getElementById('blueInput').value;
+
+            if (colorValue(redValue) && colorValue(greenValue) && colorValue(blueValue)) {
+                if (osnova.querySelectorAll('.color-entry').length >= 9) {
+                    return;
+                }
+
+                const colorBox = document.createElement('div');
+                colorBox.className = 'color-box';
+                colorBox.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+
+                const colorLabel = document.createElement('div');
+                colorLabel.textContent = `RGB (${redValue}, ${greenValue}, ${blueValue})`;
+                colorLabel.className = 'color-label';
+
+                const colorEntry = document.createElement('div');
+                colorEntry.className = 'color-entry';
+                colorEntry.appendChild(colorBox);
+                colorEntry.appendChild(colorLabel);
+
+                arrangeColors(colorEntry);
+            }
+        });
+
+        function colorValue(value) {
+            return /^[0-9]{1,3}$/.test(value) && parseInt(value) >= 0 && parseInt(value) <= 255;
+        }
+
+        function arrangeColors(newEntry) {
+            let colorRow = osnova.querySelector('.color-row:last-of-type');
+            if (!colorRow || colorRow.childElementCount === 3) {
+                colorRow = document.createElement('div');
+                colorRow.className = 'color-row';
+                osnova.appendChild(colorRow);
+            }
+            colorRow.appendChild(newEntry);
+        }
+    </script>
+</body></html>

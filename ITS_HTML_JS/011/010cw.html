@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CW011</title>
+    <style>
+        body {
+            width: 40%;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        #color {
+            width: 50px;
+        }
+
+        input[type="text"],
+        input[type="phone"],
+        input[type="email"],
+        input[type="url"],
+        input[type="password"],
+        select,
+        input[type="color"],
+        input[type="checkbox"] {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 95%;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"],
+        input[type="button"],
+        input[type="reset"],
+        input[type="reset"] {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--
+    <form action="" method="GET">
+        <input type="text" name="name">
+        <input type="submit">
+        
+    </form>
+-->
+    <!--
+    <form action="" method="GET">
+        <input type="text" name="name">
+        <input type="submit">
+        
+    </form>
+-->
+
+    <h2>Add new contact</h2>
+    <form method="GET" id="contactForm">
+        <b>Name </b><input type="text" name="name" placeholder="Enter name"><br><br>
+        <input type="submit" value="Save">
+        <input type="button" value="Reset" onclick="resetForm()">
+        <input onclick="add_phone()" type="button" value="One more phone"><br><br>
+        Phone number: <input type="text" name="phone" placeholder="Enter phone">
+        <span>Phone type: </span><select name="type">
+            <option value="1">Home</option>
+            <option value="2">Work</option>
+            <option value="3" selected>Cellular</option>
+        </select>
+        Priority: <input type="radio" name="main" value="1" checked>
+
+        <label for="birthday">Date of Birth: </label>
+        <input type="date" id="birthday" name="birthday">
+        <input type="checkbox" name="remind">Remind me about birthday<br>
+
+        <label for="photo">Photo: </label>
+        <input type="file" id="photo" name="photo"><br><br>
+
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="website">Website: </label>
+        <input type="url" id="website" name="website"><br><br>
+
+        <label for="secret">Secret Word: </label>
+        <input type="password" id="secret" name="secret"><br><br>
+
+        <label for="color" id="color">Favorite Color: </label>
+        <input type="color" id="color" name="color"><br><br>
+
+    </form>
+
+    <button onclick="showElements()">Elements</button>
+    <p id="out"></p>
+    <button onclick="showChildren()">Children</button>
+    <p id="out2"></p>
+
+
+
+    <script>
+        function add_phone() {
+            if (typeof phoneCounter == "undefined") phoneCounter = 1;
+            phoneCounter++;
+            let f = document.forms[0];
+            let b = document.createElement('br');
+            f.appendChild(b);
+            let t = document.createTextNode('Phone number: ');
+            f.appendChild(t);
+            let phoneInput = document.createElement('input');
+            phoneInput.type = "text";
+            phoneInput.type = "phone" + phoneCounter;
+            f.appendChild(phoneInput);
+            let t2 = document.createTextNode('Phone typr: ');
+            f.appendChild(t2);
+            let selector = f.elements['type'];
+            let newSelector = selector.cloneNode(true);
+            newSelector.name = 'typr' + phoneCounter;
+            f.appendChild(newSelector);
+            let t3 = document.createTextNode('Priority ');
+            f.appendChild(t3);
+            let mainRadio = document.createElement('input');
+            mainRadio.type = 'radio';
+            mainRadio.name = 'main';
+            mainRadio.value = phoneCounter;
+            f.appendChild(mainRadio);
+        }
+
+
+
+        function showElements() {
+            let e = document.forms[0].elements;
+            let p = document.getElementById('out');
+            p.innerHTML = "";
+            for (i = 0; i < e.length; i++) {
+                p.innerHTML += e[i].tagName + " - " + e[i].name + " - " + e[i].value + "<br>";
+            }
+        }
+
+        function showChildren() {
+            let e = document.forms[0].children;
+            let p = document.getElementById('out');
+            p.innerHTML = "";
+            for (i = 0; i < e.length; i++) {
+                p.innerHTML += (i + 1) + ". " + e[i].tagName + "<br>";
+            }
+        }
+
+        function resetForm() {
+    document.getElementById('contactForm').reset();
+
+    let f = document.getElementById('contactForm');
+    let addedFields = f.querySelectorAll('.added-field');
+
+    for (let i = addedFields.length - 1; i >= 0; i--) {
+        f.removeChild(addedFields[i]);
+    }
+
+    phoneCounter = 0;
+}
+
+
+    </script>
+
+</body>
+
+</html>

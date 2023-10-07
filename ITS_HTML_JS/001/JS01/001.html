@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Задача 1
+        let number1 = +prompt("Введите число:");
+        alert(number1 *  number1)
+
+        // Задача 2
+        let num1 = +prompt("Введите первое число:");
+        let num2 = +prompt("Введите второе число:");
+        let average = (num1 + num2) / 2;
+        alert(average);
+
+        // Задача 3
+        let sideLength = +prompt("Введите длину стороны квадрата:");
+        let squareArea = sideLength * sideLength;
+        alert("Площадь квадрата со стороной " + sideLength + " равно: " + squareArea);
+
+        // Задача 4
+        let kmMiles = 0.621371;
+        let kilometers = +prompt("Введите количество километров:");
+        let miles = kilometers * kmMiles;
+        alert(kilometers + "км =" + miles + "миль");
+
+        // Задача 5
+        let num3 = +prompt("Введите первое число для калькулятора:");
+        let num4 = +prompt("Введите второе число для калькулятора:");
+
+        let addition = num3 + num4;
+        let subtraction = num3 - num4;
+        let multiplication = num3 * num4;
+        let division = num3 / num4;
+
+        alert("Результаты калькулятора: Сложение: " + addition + ". Вычитание: " + subtraction + ". Умножение: " + multiplication + ". Деление: " + division);
+
+        // Задача 6
+        let a = +prompt("Введите значение a:");
+        let b = +prompt("Введите значение b:");
+        let x = -b / a;
+        alert("Значение x для уравнения a * x + b = 0: " + x);
+
+    </script>
+</body>
+
+</html>

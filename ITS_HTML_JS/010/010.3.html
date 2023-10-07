@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #knk {
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="testTest">Jg</p>
+        <button id="knk">knk</button>
+    </div>
+    <script>
+        let testTest = document.getElementById("testTest");
+        let knk = document.getElementById("knk");
+
+        knk.addEventListener('click', function() {
+                testTest.textContent = "Воп"             
+        })
+
+    </script>
+</body>
+
+</html>

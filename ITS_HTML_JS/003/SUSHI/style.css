@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(img/0-original.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+textarea {
+    width: 100%;
+}
+
+#back {
+    width: 100%;
+    background: linear-gradient(45deg, rgba(242, 246, 248, 0.9) 0%, rgba(181, 198, 208, 0.9) 33%, rgba(181, 198, 208, 0.9) 66%, rgba(224, 239, 249, 0.9) 100%);
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+}

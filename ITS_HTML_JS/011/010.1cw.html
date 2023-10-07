@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!--
+<form action="" method="GET">
+    <input type="text" name="name">
+    <input type="submit"> 
+</form>
+
+<form action="" method="GET">
+    <input type="text" name="name">
+    <input type="submit"> 
+</form>
+-->
+
+    <h2>Add new contact</h2>
+    <form action="" method="GET">
+          <b>Name </b><input type="text" placeholder="Enter name" name="name">
+        <div style="margin:10px 0;">
+            Phone number <input type="text" name="phone" id="ph" placeholder="Enter phone number">
+            Phone type <select name="type">
+                    <option value="1" selected>Cellular</option>
+                    <option value="2">Home</option>
+                    <option value="3">Work</option>
+                </select>
+            Priority    <input type="radio" name="main" value="1" checked >
+        </div>
+
+        <input onclick="add_phone()" type="button" value="One more phone">
+    </form>
+
+    <br>
+
+    <button onclick="showElemnts()">Elements</button>
+    <p id="out"></p>
+
+    <button onclick="showChildren()">Children</button>
+    <p id="out2"></p>
+    <script>
+        function add_phone() {
+            if (typeof phoneCounter == 'undefined') phoneCounter = 1;
+            phoneCounter++;
+            var f = document.forms[0];
+
+            var line = f.children[2];
+            var newLine = line.cloneNode(true);
+            newLine.children[0].name = 'phone' + phoneCounter;
+            newLine.children[0].value = '';
+            newLine.children[1].name = 'type' + phoneCounter;
+            newLine.children[2].checked = false;
+            f.insertBefore(newLine, f.children[phoneCounter + 1]);
+            
+            var removeButton = document.createElement('input');
+			removeButton.type = 'button';
+			removeButton.value = 'Remove';
+			removeButton.addEventListener('click',rem_click);
+			newLine.appendChild(removeButton);
+			f.insertBefore(newLine,f.children[phoneCounter+1]);
+		
+            //            let b = document.createElement('br');
+            //            f.appendChild(b);
+            //            let t = document.createTextNode('Phone number: ');
+            //            f.appendChild(t);
+            //            let phoneInput = document.createElement('input');
+            //            phoneInput.type = "text";
+            //            phoneInput.name = "phone" + phoneCounter;
+            //            f.appendChild(phoneInput);
+            //            let t2 = document.createTextNode('Phone type: ');
+            //            f.appendChild(t2);
+            //
+            //            let selector = f.elements['type'];
+            //            let newSelector = selector.cloneNode(true);
+            //            newSelector.name = 'type' + phoneCounter;
+            //            f.appendChild(newSelector);
+            //
+            //            let t3 = document.createTextNode('Priority: ');
+            //            f.appendChild(t3);
+            //            let mainRadio = document.createElement('input');
+            //            mainRadio.type = 'radio';
+            //            mainRadio.name = 'main';
+            //            mainRadio.value = phoneCounter;
+            //            f.appendChild(mainRadio);
+        }
+
+function rem_click(){
+			var line = event.target.closest('div');
+            var f = document.forms[0];
+            f.removeChild(line);
+            phoneCounter--; 
+		}
+
+
+        function showElemnts() {
+            let e = document.forms[0].elements;
+            let p = document.getElementById('out');
+            p.innerHTML = "";
+            for (let i = 0; i < e.length; i++) {
+                p.innerHTML += (i + 1) + ". " + e[i].tagName + " - " + e[i].name + " - " + e[i].value + "<br>";
+            }
+        }
+
+        function showChildren() {
+            let e = document.forms[0].children;
+            let p = document.getElementById('out2');
+            p.innerHTML = "";
+            for (let i = 0; i < e.length; i++) {
+                p.innerHTML += (i + 1) + ". " + e[i].tagName + "<br>";
+            }
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

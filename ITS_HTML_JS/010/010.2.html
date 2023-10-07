@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RandomGenerator</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--
+    <div id="result">Click</div>
+    <button id="generateButton">BUTTON</button>
+-->
+    <p id="transparent">Text text text text</p>
+    <button id="togButton">Toggle Text</button>
+
+    <script>
+                let resultElement = document.getElementById("result");
+                let generateButton = document.getElementById("generateButton");
+        
+                generateButton.addEventListener('click', function () {
+                    let randomNumber = Math.floor(Math.random() * 101);
+                    resultElement.textContent = "Random Number: " + randomNumber;
+                });
+
+        let textElement = document.getElementById("transparent");
+        let toggleButton = document.getElementById("togButton");
+        let isTextVisible = true;
+
+        toggleButton.addEventListener('click', function() {
+            if (isTextVisible) {
+                textElement.style.display = "none"; 
+            } else {
+                textElement.style.display = "block"; 
+            }
+            isTextVisible = !isTextVisible;
+        });
+
+    </script>
+</body>
+
+</html>

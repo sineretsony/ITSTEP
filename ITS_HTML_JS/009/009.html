@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document009</title>
+</head>
+
+<body>
+    <script>
+        //        // array
+        //        let num1 = 1;
+        //        let num2 = 2;
+        //        let num3 = 3;
+        //
+        //        // создание
+        //
+        //        let marks = ["1", "2", "3", 4, 5, 6];
+        //
+        //        let arr = new Array(1, 2, 3);
+        //
+        //        let countArr = new Array(10);
+        //        marks[0] = 10;
+        //
+        //        //        alert(marks[0]);
+        //        //        
+        //        //        alert(marks.length);
+        //        marks.length = 3;
+        //        marks.length = 5;
+        //
+        //        //        alert(marks);
+        //        marks[3] = 11;
+        //        marks[4] = 9;
+        //
+        //        marks.push(6); // в конец
+        //        marks.unshift(1); // в начало
+        //        marks.pop(); // удалить последнюю
+        //        marks.shift(); // с начала
+        //
+        //        //        alert(marks.concat([4, 4, 4]));
+        //        //        alert(marks.join(" - "))
+        //
+        //        function compareFunc(a, b) {
+        //            if (a > b) {
+        //                return 1;
+        //            } else if (b > a) {
+        //                return -1;
+        //            } else return 0;
+        //        }
+        //        
+        //
+        //        alert(marks.sort(compareFunc))
+        //
+        //        for (let i = 0; i < marks.length; i++) {
+        //            console.log("i = ", marks[i]);
+        //        }
+
+
+        //        function printMas(arr) {
+        //            for (let i = 0; i < arr.length; i++) {
+        //                console.log(arr[i]);
+        //            }
+        //        }
+        //
+        //
+        //        function printEven(arr) {
+        //            for (let i = 0; i < arr.length; i++) {
+        //                if (arr[i] % 2 === 0) {
+        //                    console.log(arr[i]);
+        //                }
+        //            }
+        //        }
+        //
+        //        function sumArr(arr) {
+        //            let sum = 0;
+        //            for (let i = 0; i < arr.length; i++) {
+        //                sum += arr[i];
+        //            }
+        //            return sum;
+        //        }
+        //
+        //        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //
+        //        console.log("Массив:");
+        //        printMas(array);
+        //
+        //        console.log("Четные элементы:");
+        //        printEven(array);
+        //
+        //        console.log("Сумма всех элементов: " + sumArr(array));
+        //
+        //
+        //
+        //        // Задача 4
+        //        function MaxElement(arr) {
+        //            let max = arr[0];
+        //            for (let i = 1; i < arr.length; i++) {
+        //                if (arr[i] > max) {
+        //                    max = arr[i];
+        //                }
+        //            }
+        //            return max;
+        //        }
+        //
+        //        // Задача 5
+        //        function pushIndex(arr, index, element) {
+        //            arr.splice(index, 0, element);
+        //        }
+        //
+        //        // Задача 6
+        //        function delIndex(arr, index) {
+        //            arr.splice(index, 1);
+        //        }
+        //
+        //        console.log("Максимальный элемент массива: ", MaxElement(array));
+        //
+        //        pushIndex(array, 2, 6);
+        //        console.log("Массив после добавления: ", array);
+        //
+        //        delIndex(array, 3);
+        //        console.log("Массив после удаления: ", array);
+
+        //        // Объект
+        //        let obj = new Object();
+        //        let obj2 = {};
+        //
+        //        let student = new Object();
+        //        student["name"] = "Ilon Mask";
+        //        student["age"] = 45;
+        //        alert(student.name);
+        //
+        //        let user = {
+        //            name: "admin",
+        //            login: "admin",
+        //            age: "20",
+        //            addres: {
+        //                street: "street1",
+        //                sity: "Kiev"
+        //            }
+        //        }
+        //        
+        //        user.name2 = "newUser";
+        //        if("name2" in user){
+        //            delete user.name2;
+        //            alert("name delete");
+        //        } else {
+        //            alert("nit exists");
+        //        }
+        //        alert(user.name2);
+        //        
+        //        let rect = {
+        //            x: 0,
+        //            y: 0,
+        //            ensX: 10,
+        //            endY: 10
+        //        }
+        //        
+        //        for(let prop in rect){
+        //            document.write(prop + ": " + rect[prop] + "<br>");
+        //        }
+        
+        let rect = {
+            x: 0,
+            y: 0,
+            endX: 10,
+            endY: 10
+        };
+
+
+        // Задача 2
+        function rectWidth(rect) {
+            return rect.endX - rect.x;
+        }
+
+        // Задача 3
+        function rectHeight(rect) {
+            return rect.endY - rect.y;
+        }
+
+        // Задача 4
+        function rectArea(rect) {
+            const width = rectWidth(rect);
+            const height = rectHeight(rect);
+            return width * height;
+        }
+
+        // Задача 5
+        function rectPerimeter(rect) {
+            const width = rectWidth(rect);
+            const height = rectHeight(rect);
+            return 2 * (width + height);
+        }
+
+
+        console.log("Ширина прямоугольника:", rectWidth(rect));
+        console.log("Высота прямоугольника:", rectHeight(rect));
+        console.log("Площадь прямоугольника:", rectArea(rect));
+        console.log("Периметр прямоугольника:", rectPerimeter(rect));
+
+    </script>
+
+</body>
+
+</html>

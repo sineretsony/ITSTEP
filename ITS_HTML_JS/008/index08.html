@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Создание функции 
+        function fincName() {
+            // действие
+
+        }
+
+        function sayError() {
+            alert("Have some error");
+        }
+
+        //        sayError()
+
+        function showError(error) {
+            if (error != undefined) {
+                alert("Have some error - " + error);
+            }
+        }
+
+        //        showError('syntax error')
+
+        function minNums(num1, num2) {
+            if (num1 > num2) {
+                return num2;
+            } else {
+                return num1;
+            }
+            return -1;
+        }
+
+        //        let minNum = minNums (1, 6);
+        //        alert(minNum);
+
+        function checkPassword(x) {
+            if (x === "Step" || x === "Web" || x === "JavaScript") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        //        alert(checkPassword("Step"));
+        //        alert(checkPassword("Web"));
+        //        alert(checkPassword("123"));
+
+        function max() {
+            if (arguments.length == 0) return undefined;
+            let res = arguments[0];
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] > res) {
+                    res = arguments[i];
+                }
+            }
+            return res;
+        }
+
+
+        //        alert(max(1, 2, 3));
+
+        function tetsLocal() {
+            let localName = "local";
+            alert(localName)
+        }
+        tetsLocal()
+
+        //        alert(localName)
+
+
+        //        // Задача 1
+        //        function calcLes(num1, sum, num2) {
+        //            let result;
+        //
+        //            if (sum === '+') {
+        //                result = num1 + num2;
+        //            } else if (sum === '-') {
+        //                result = num1 - num2;
+        //            } else if (sum === '*') {
+        //                result = num1 * num2;
+        //            } else if (sum === '/') {
+        //                if (num2 !== 0) {
+        //                    result = num1 / num2;
+        //                } else {
+        //                    return "Деление на ноль!";
+        //                }
+        //            } else {
+        //                return "Недопустимый символ операции!";
+        //            }
+        //
+        //            return result;
+        //
+        //
+        //            console.log(calcLes(5, '+', 3));
+        //
+        //            // Задача 2
+        //            function sign(x) {
+        //                if (x < 0) {
+        //                    return -1;
+        //                } else if (x > 0) {
+        //                    return 1;
+        //                } else {
+        //                    return 0;
+        //                }
+        //            }
+        //
+        //            console.log(sign(-5));
+        //            console.log(sign(10));
+        //            console.log(sign(0));
+
+//        // Задача 3
+//        function min() {
+//            if (arguments.length == 0) return undefined;
+//            let res = arguments[0];
+//            for (let i = 1; i < arguments.length; i++) {
+//                if (arguments[i] < res) {
+//                    res = arguments[i];
+//                }
+//            }
+//            return res;
+//        }
+//        console.log(min(5, 3, 8, 1));
+
+        // Задача 4
+        function numbers() {
+            let j = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                if (typeof arguments[i] == 'number') {
+                    j++;
+                }
+            }
+            return j;
+        }
+        
+        console.log(numbers(true, 2, false));
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document009</title>
+    <style>
+        .chack-container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .chack-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chack-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .item-number {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // Задание 1
+        let rectangle = {
+            upperRightX: 100,
+            upperRightY: 0,
+            bottomLeftX: 0,
+            bottomLeftY: 100
+        }
+
+        function resizeRect(rect, width, height) {
+            rect.upperRightX = width;
+            rect.bottomLeftY = height;
+
+        }
+
+        function moveRect(rect, movX, movY) {
+            rect.upperRightX += movX;
+            rect.upperRightY += movY;
+            rect.bottomLeftX += movX;
+            rect.bottomLeftY += movY;
+        }
+
+        function pointInside(rect, px, py) {
+            return (
+                px >= rect.bottomLeftX &&
+                px <= rect.upperRightX &&
+                py >= rect.upperRightY &&
+                py <= rect.bottomLeftY
+            );
+        }
+
+
+        console.log(rectangle);
+        resizeRect(rectangle, 100, 200);
+        console.log(rectangle);
+
+        moveRect(rectangle, 50, 50);
+        console.log(rectangle);
+
+        console.log(pointInside(rectangle, 50, 50));
+        console.log(pointInside(rectangle, 150, 150));
+
+
+        // Задание 2
+        let numbersArr = [23, 56, 12, 89, 34, 7, 45, 67, 90, 2];
+
+        function minNumbers(arr) {
+            let minN = arr[0];
+            for (let i = 0; i <= arr.length; i++) {
+                if (arr[i] < minN) {
+                    minN = arr[i];
+                }
+
+            }
+            return minN;
+        }
+
+        function sortArray(arr) {
+            return arr.slice().sort((a, b) => a - b);
+        }
+
+        function searchNum(arr, n) {
+            for (let i = 0; i <= arr.length; i++) {
+                if (arr[i] === n) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function reverseArr(arr) {
+            let temp = [];
+            for (let i = arr.length - 1; i >= 0; i--) {
+                temp.push(arr[i]);
+            }
+            return temp;
+        }
+
+
+
+
+        console.log(minNumbers(numbersArr));
+        console.log(sortArray(numbersArr));
+        console.log(searchNum(numbersArr, 89));
+        console.log(reverseArr(numbersArr));
+
+        // Задание 3 (доп)
+        let fruits = ["яблоко", "банан", "киви", "апельсин", "груша"];
+
+        fruits.sort();
+
+        console.log(fruits);
+
+        function docWrite(arr) {
+            document.write("<ul>");
+            for (let i = 0; i < arr.length; i++) {
+                document.write("<li>" + arr[i] + "</li>");
+            }
+            document.write("</ul>");
+            document.write("<hr>");
+
+        }
+
+        docWrite(fruits);
+
+        function searchFruits(arr, x) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === x.toLowerCase()) {
+                    return i + " - " + x;
+                }
+            }
+            return -1;
+        }
+
+        console.log(searchFruits(fruits, "Яблоко"));
+        console.log(searchFruits(fruits, "Мандарин"));
+
+
+        // Задание 4 (доп)
+        let chack = [{
+                name: "Яблоко",
+                quantity: 3,
+                price: 10
+            },
+            {
+                name: "Банан",
+                quantity: 2,
+                price: 15
+            },
+            {
+                name: "Груша",
+                quantity: 4,
+                price: 12
+            }
+        ];
+
+        function printChack(arr) {
+            let output = "<div class='chack-container'><h2>Чек</h2><ul class='chack-list'>";
+
+            let countN = 1;
+            let sum = 0;
+            let hPrice = 0;
+
+            for (let i of arr) {
+                output += `<li><span class='item-number'>${countN}.</span> ${i.name}: ${i.quantity} шт. по ${i.price} грн. = ${i.quantity * i.price} грн.</li>`;
+                countN++;
+                sum += i.quantity * i.price;
+
+                if (i.quantity * i.price > hPrice) {
+                    hPrice = i.quantity * i.price;
+                }
+            }
+
+            let avPrice = sum / arr.length;
+
+            output += "</ul>";
+            output += `<p class='total'>Общая сумма: ${sum} грн.</p>`;
+            output += `<p class='total'>Самая дорогая позиция: ${hPrice} грн.</p>`;
+            output += `<p class='total'>Средняя стоимость товаров в чеке: ${avPrice.toFixed(2)} грн.</p>`;
+            output += "</div>";
+
+            return output;
+        }
+
+        document.write(printChack(chack));
+    </script>
+
+</body></html>

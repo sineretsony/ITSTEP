@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework08</title>
+</head>
+
+<body>
+    <script>
+        // Задача 1
+        function minNums(num1, num2) {
+            if (num1 > num2) {
+                return num2;
+            } else {
+                return num1;
+            }
+            return -1;
+        }
+
+        let minNum = minNums(1, 6);
+        alert(minNum);
+
+        // Задача 2
+        let base = +prompt("Введите число");
+        let exponent = +prompt("Введите степень");
+
+        function baseExponent(b, e) {
+            let result = b ** e;
+            return result;
+        }
+
+        alert(baseExponent(base, exponent));
+
+        // Задача 3
+        function primeNumber(number) {
+            let counter = 0;
+            for (let i = 1; counter <= 2 && i <= number; i++) {
+                if (number % i == 0) {
+                    counter++
+                }
+            }
+            if (counter == 2) {
+                return "Простое число";
+            } else {
+                return "Число не является простым";
+            }
+        }
+
+        alert(primeNumber(23));
+
+        // Задача 4
+        function mean() {
+            if (arguments.length == 0) return "Нет аргументов";
+            let resMean = arguments[0];
+            let countMean = 0;
+            let sumMean = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                if (typeof arguments[i] === 'number') {
+                    countMean++;
+                    sumMean += arguments[i];
+                }
+            }
+            return sumMean / countMean;
+        }
+
+        alert(mean(true, 2, false));
+
+        // Задача 5
+        function piFagor(x) {
+            let fagor = '';
+
+            for (let j = 1; j <= 10; j++) {
+                let tabl = x * j;
+                fagor += x + " * " + j + " = " + tabl + "\n";
+            }
+            return fagor;
+        }
+
+        alert(piFagor(2));
+        alert(piFagor(3));
+        alert(piFagor(4));
+        alert(piFagor(5));
+        alert(piFagor(6));
+        alert(piFagor(7));
+        alert(piFagor(8));
+        alert(piFagor(9));
+
+        // Задача 6
+        function numPandN(a, b, bool) {
+            let sum = '';
+
+            if (a > b) {
+                let temp = a;
+                a = b;
+                b = temp;
+            }
+
+            for (let i = a; i <= b; i++) {
+                if (i % 2 === 0 && bool) {
+                    sum += i + ' ';
+                } else if (i % 2 !== 0 && !bool) {
+                    sum += i + ' ';
+                }
+            }
+
+            return sum;
+        }
+
+        alert(numPandN(2, 10, false));
+        alert(numPandN(12, 2, false));
+    </script>
+
+</body>
+
+</html>

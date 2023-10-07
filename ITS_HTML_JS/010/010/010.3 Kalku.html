@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #cccccc;
+        }
+
+        .display {
+            width: 100%;
+            height: 60px;
+            font-size: 24px;
+            text-align: right;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            padding: 0 10px;
+            box-sizing: border-box;
+            background-color: #919191;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 10px;
+        }
+
+        button {
+            width: 100%;
+            height: 60px;
+            font-size: 18px;
+            border: none;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #a9edff;
+        }
+
+        .operator {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        .calculate {
+            background-color: #5b9f38;
+            color: white;
+            font-weight: bold;
+        }
+
+        .clear {
+            background-color: #ff5733;
+            color: white;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="result" disabled>
+        <div class="buttons">
+            <button class="number" value="7">7</button>
+            <button class="number" value="8">8</button>
+            <button class="number" value="9">9</button>
+            <button class="operator" value="/">/</button>
+            <button class="number" value="4">4</button>
+            <button class="number" value="5">5</button>
+            <button class="number" value="6">6</button>
+            <button class="operator" value="*">*</button>
+            <button class="number" value="1">1</button>
+            <button class="number" value="2">2</button>
+            <button class="number" value="3">3</button>
+            <button class="operator" value="-">-</button>
+            <button class="clear" value="C">C</button>
+            <button class="number" value="0">0</button>
+            <button class="calculate" value="=">=</button>
+            <button class="operator" value="+">+</button>
+        </div>
+    </div>
+    <script>
+        let num1 = 0;
+        let opr;
+        let num2 = 0;
+        let tempNum = '';
+        let tempResult = '';
+        let conut = 0;
+        let display = document.getElementById('result');
+        let numberButtons = document.querySelectorAll(".number");
+        let operatorButtons = document.querySelectorAll(".operator");
+        let clearButtons = document.querySelectorAll(".clear");
+        let calculateButtons = document.querySelectorAll(".calculate");
+
+        calculateButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                if (button.value == "=") {
+                    num2 = parseFloat(tempNum);
+
+                    if (opr == '+') {
+                        display.value = num1 + num2;
+                    } else if (opr == '-') {
+                        display.value = num1 - num2;
+                    } else if (opr == '*') {
+                        display.value = num1 * num2;
+                    } else if (opr == '/' && num2 != 0) {
+                        display.value = num1 / num2;
+                    } else if (opr == '/' && num2 == 0) {
+                        num1 = 0;
+                        opr = null;
+                        num2 = 0;
+                        tempNum = '';
+                        tempResult = '';
+                        display.value = '';
+                        conut = 0;
+                    }
+                    tempNum = display.value;
+                    tempResult = tempNum;
+                    display.value = tempResult;
+                }
+            });
+        });
+
+        clearButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                if (button.value == "C") {
+                    num1 = 0;
+                    opr = null;
+                    num2 = 0;
+                    tempNum = '';
+                    tempResult = '';
+                    display.value = '';
+                    conut = 0;
+                }
+            });
+        });
+
+        numberButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                tempNum += button.value;
+                tempResult += button.value;
+                display.value = tempResult;
+                if (num1 > 0 && tempNum != '') {
+                    conut++
+                }
+            });
+        });
+
+        operatorButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                if (tempNum !== '') {
+                    num1 = parseFloat(tempNum);
+                }
+                if (opr && num1 != 0 && conut <= 0) {
+                    opr = '';
+                    tempResult = tempResult.slice(0, -1);
+                    display.value = tempResult;
+                }
+                if (num1 && conut <= 0) {
+                    opr = button.value;
+                    tempNum = '';
+                    tempResult += button.value;
+                    display.value = tempResult;
+                }
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>

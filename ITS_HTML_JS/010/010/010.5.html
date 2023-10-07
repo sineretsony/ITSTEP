@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>homework010</title>
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .circle-container {
+            display: flex;
+            gap: 10px;
+            padding: 5px;
+        }
+
+        #base {
+            background-color: black;
+            padding: 10px;
+            border-radius: 30px;
+        }
+
+        #red {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #72150e;
+        }
+
+        #yellow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ba881a;
+        }
+
+        #green {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2b600f;
+        }
+
+
+        .but {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .but:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <div id="base">
+            <div class="circle-container">
+                <div id="red"></div>
+            </div>
+            <div class="circle-container">
+                <div id="yellow"></div>
+            </div>
+            <div class="circle-container">
+                <div id="green"></div>
+            </div>
+
+        </div>
+        <button id="play" class="but">PLAY</button>
+        <button id="stop" class="but">STOP</button>
+        <button id="paused" class="but">PAUSED</button>
+    </div>
+    <script>
+        let playButton = document.getElementById("play");
+        let stopButton = document.getElementById("stop");
+        let pausedButton = document.getElementById("paused");
+        let redLight = document.getElementById("red");
+        let yellowLight = document.getElementById("yellow");
+        let greenLight = document.getElementById("green");
+        let color = ["red", "yellow", "#5bef0c"];
+
+        let status = 0;
+        let colorIndex = 0;
+        let intervalId = null;
+
+        function clearLights() {
+            redLight.style.backgroundColor = "#72150e";
+            yellowLight.style.backgroundColor = "#ba881a";
+            greenLight.style.backgroundColor = "#2b600f";
+        }
+
+        function changeColor() {
+            clearLights();
+
+            if (status === 1) {
+                if (colorIndex === 0) {
+                    redLight.style.backgroundColor = color[colorIndex];
+                    greenLight.style.backgroundColor = "#2b600f";
+                } else if (colorIndex === 1) {
+                    yellowLight.style.backgroundColor = color[colorIndex];
+                } else if (colorIndex === 2) {
+                    greenLight.style.backgroundColor = color[colorIndex];
+                    redLight.style.backgroundColor = "#72150e";
+                    yellowLight.style.backgroundColor = "#ba881a";
+                }
+            }
+
+            if (status === 2) {
+                yellowLight.style.backgroundColor = (colorIndex === 1) ? color[colorIndex] : "#ba881a";
+            }
+
+            colorIndex = (colorIndex + 1) % 3;
+        }
+
+        playButton.addEventListener('click', function() {
+            clearInterval(intervalId);
+            intervalId = setInterval(changeColor, 1000);
+            changeColor();
+            status = 1;
+        });
+
+        stopButton.addEventListener('click', function() {
+            clearLights();
+            clearInterval(intervalId);
+            colorIndex = 0;
+            status = 0;
+        });
+
+        pausedButton.addEventListener('click', function() {
+            clearInterval(intervalId);
+            intervalId = setInterval(changeColor, 1000);
+            colorIndex = 0;
+            changeColor();
+            status = 2;
+        });
+    </script>
+
+
+</body></html>
