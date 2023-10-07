@@ -92,7 +92,7 @@ def save_data_to_file(file_name, data):
     file_name += '.json'
     try:
         with open(file_name, 'w') as file:
-            json.dump(data, file)
+            json.dump(data, file, indent=4)
             print('Данные успешно сохранены в файл', file_name)
     except Exception as a:
         print(f"Ошибка сохранения файла {a}")
