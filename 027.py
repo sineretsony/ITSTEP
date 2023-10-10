@@ -1,37 +1,40 @@
-# class Car:
-#     def __init__(self, color, name, speed):
-#         print('init working')
-#         self.__color = color
-#         self.name = name
-#         self.__speed = speed
-# #
-#     def __del__(self):
-#         print('Car removed')
-#
-#     def show_info(self):
-#         print(f'Name: {self.name}, '
-#               f'Color: {self.__color}, '
-#               f'Speed: {self.__speed} km/h')
-#
-#     def set_color(self, new_color):
-#         self.__color = new_color
-#
-#     def set_name(self, new_name):
-#         self.name = new_name
-#
-#     def get_color(self):
-#         return self.__color
-#
-#     def get_name(self):
-#         return self.name
-#
-#     @property
-#     def speed(self):
-#         return self.__speed
-#
-#     @speed.setter
-#     def speed(self, new_speed):
-#         self.__speed = new_speed
+class Car:
+    def __init__(self, color, name, speed):
+        print('init working')
+        self.__color = color
+        self.name = name
+        self.__speed = speed
+
+    #
+    def __del__(self):
+        print('Car removed')
+
+    def show_info(self):
+        print(f'Name: {self.name}, '
+              f'Color: {self.__color}, '
+              f'Speed: {self.__speed} km/h')
+
+    def set_color(self, new_color):
+        self.__color = new_color
+
+    def set_name(self, new_name):
+        self.name = new_name
+
+    def get_color(self):
+        return self.__color
+
+    def get_name(self):
+        return self.name
+
+    @property
+    def speed(self):
+        return self.__speed
+
+    @speed.setter
+    def speed(self, new_speed):
+        self.__speed = new_speed
+
+
 #
 #
 # myCar = Car('white', 'Ferrari', 200)
