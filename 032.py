@@ -214,3 +214,6 @@ try:
     exec(code_to_execute)
 except Exception as e:
     print(f"Произошла ошибка: {e}")
+
+
+
